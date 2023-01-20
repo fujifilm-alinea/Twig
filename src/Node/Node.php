@@ -142,7 +142,7 @@ class Node implements \Twig_NodeInterface
     /**
      * @return bool
      */
-    public function hasAttribute($name)
+    public function hasAttribute($name): bool
     {
         return \array_key_exists($name, $this->attributes);
     }
@@ -184,7 +184,7 @@ class Node implements \Twig_NodeInterface
     /**
      * @return Node
      */
-    public function getNode($name)
+    public function getNode($name): Node
     {
         if (!\array_key_exists($name, $this->nodes)) {
             throw new \LogicException(sprintf('Node "%s" does not exist for Node "%s".', $name, static::class));
@@ -210,7 +210,7 @@ class Node implements \Twig_NodeInterface
     /**
      * @return int
      */
-    public function count()
+    public function count(): int
     {
         return \count($this->nodes);
     }
@@ -218,7 +218,7 @@ class Node implements \Twig_NodeInterface
     /**
      * @return \Traversable
      */
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return new \ArrayIterator($this->nodes);
     }
